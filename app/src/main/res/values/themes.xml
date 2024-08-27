@@ -8,4 +8,8 @@
     </style>
 
     <style name="Theme.MAD_Android_Kotlin1" parent="Base.Theme.MAD_Android_Kotlin1" />
+
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/black</item>
+    </style>
 </resources>

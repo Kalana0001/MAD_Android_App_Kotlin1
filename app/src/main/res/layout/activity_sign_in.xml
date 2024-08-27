@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SignIn">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/main_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="5dp">
+
+            <!-- Top Image Background -->
+            <ImageView
+                android:id="@+id/top_image_signup"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/imgg"
+                android:background="@drawable/sign_head_img" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/app_title_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Auto Tech"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:layout_marginTop="60dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/app_subtitle_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log, Find, and Save Time"
+                android:layout_below="@id/app_title_signup"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"/>
+
+            <!-- Welcome Text -->
+            <TextView
+                android:id="@+id/welcome_text_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WELCOME"
+                android:textColor="@android:color/black"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:layout_below="@id/app_subtitle_signup"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="90dp"/>
+
+            <TextView
+                android:id="@+id/tagline_text_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start Maintaining Your Vehicle Today !"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/welcome_text_signup"
+                android:layout_centerHorizontal="true"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"/>
+
+        </RelativeLayout>
+
+        <!-- Sign In and Log In Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:padding="19dp">
+
+            <Button
+                android:id="@+id/sign_in_button_signup"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Sign In"
+                android:layout_marginStart="75dp"
+                android:layout_marginEnd="3dp"
+                android:background="@drawable/custom_button1"
+                android:textColor="@drawable/button_text_color1"
+                android:textSize="12sp"
+                android:gravity="center"
+                app:backgroundTint="@null"/>
+
+            <Button
+                android:id="@+id/log_in_button_signup"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Log In"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="75dp"
+                android:background="@drawable/custom_button1"
+                android:textColor="@drawable/button_text_color1"
+                android:textSize="12sp"
+                android:gravity="center"
+                app:backgroundTint="@null"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="3dp">
+
+            <!-- Input Fields -->
+            <EditText
+                android:id="@+id/email_input_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="E Mail"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_border"
+                android:padding="10dp"
+                android:paddingBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/password_input_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColor="@android:color/black"
+                android:inputType="textPassword"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_border"
+                android:padding="10dp"
+                android:paddingBottom="8dp"/>
+
+            <Button
+                android:id="@+id/sign_in_main_button_signup"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:text="Sign In"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginEnd="120dp"
+                android:background="@drawable/custom_button1"
+                android:textColor="@drawable/button_text_color1"
+                android:textSize="12sp"
+                android:gravity="center"
+                app:backgroundTint="@null"/><!-- to remove default values in button -->
+
+            <TextView
+                android:id="@+id/txt1_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Or Continue With"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"/>
+
+            <!-- Social Media Sign In -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true">
+
+                <ImageButton
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:textColor="#FFFFFF"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/rounded_button"
+                    android:padding="0dp"
+                    android:src="@drawable/facebook"/>
+                <ImageButton
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:textColor="#FFFFFF"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/rounded_button"
+                    android:padding="0dp"
+                    android:src="@drawable/google4"/>
+
+            </LinearLayout>
+
+            <!-- Skip Button -->
+            <TextView
+                android:id="@+id/skip_button_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skip This For Now"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/darker_gray"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
