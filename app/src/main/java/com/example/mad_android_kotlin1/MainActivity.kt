@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home_img -> {
-                    replaceFragment(HomeFragment())
+                    replaceFragment(UserProfileFragment())
                     true
                 }
                 R.id.setting_img -> {
@@ -80,8 +80,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         if (savedInstanceState == null) {
-            replaceFragment(HomeFragment())
-            navigationView.setCheckedItem(R.id.nav_home)
+            replaceFragment(UserProfileFragment())
+            navigationView.setCheckedItem(R.id.nav_profile)
         }
     }
 
@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_home -> replaceFragment(HomeFragment())
+            R.id.nav_profile -> replaceFragment(UserProfileFragment())
             R.id.nav_settings -> replaceFragment(SettingsFragment())
             R.id.nav_share -> replaceFragment(ShareFragment())
             R.id.nav_about -> replaceFragment(AboutFragment())

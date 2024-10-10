@@ -17,7 +17,7 @@
 
 
         <activity
-            android:name=".UserDetailsForm"
+            android:name=".UserDetailFormFragment"
             android:exported="true">
 
 
@@ -25,7 +25,7 @@
 
 
         <activity
-            android:name=".UserProfile"
+            android:name=".UserProfileFragment"
             android:exported="true">
 
 
@@ -36,10 +36,7 @@
             android:name=".SignUp"
             android:exported="true">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
         </activity>
 
@@ -53,6 +50,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
     </application>
