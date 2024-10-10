@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "147712638473",
+    "firebase_url": "https://mad-android-authentication-default-rtdb.firebaseio.com",
+    "project_id": "mad-android-authentication",
+    "storage_bucket": "mad-android-authentication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147712638473:android:d20565120e7c17884b02d8",
+        "android_client_info": {
+          "package_name": "com.example.mad_android_kotlin1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhfeIuuoP2DLjR08I-PODOD0xeEiI82xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
