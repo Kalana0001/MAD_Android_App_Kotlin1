@@ -55,8 +55,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home_img -> {
-                    replaceFragment(UserProfileFragment())
+                R.id.spare_parts -> {
+                    replaceFragment(SparePartsShopFragment())
                     true
                 }
                 R.id.setting_img -> {

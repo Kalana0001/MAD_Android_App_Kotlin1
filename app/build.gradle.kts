@@ -48,10 +48,24 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.auth)
+    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.androidx.recyclerview) // RecyclerView
+    implementation(libs.androidx.cardview) // CardView
+    implementation(libs.circleimageview) // CircleImageView
+    implementation(libs.glide) // Glide
+
     implementation(libs.firebase.database)
     implementation(libs.firebase.ui.database) // Firebase UI Database
+
+
+
+    implementation("androidx.room:room-runtime:2.5.0")
+    annotationProcessor("androidx.room:room-compiler:2.5.0")
+
+
+    implementation("com.orhanobut:dialogplus:1.11@aar")
 }
