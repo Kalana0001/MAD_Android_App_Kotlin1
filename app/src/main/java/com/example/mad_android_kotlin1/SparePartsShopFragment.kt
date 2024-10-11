@@ -22,6 +22,11 @@ class SparePartsShopFragment : Fragment() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var floatingActionButton: FloatingActionButton
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true) // Enable options menu
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
