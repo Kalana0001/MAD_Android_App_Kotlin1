@@ -138,7 +138,10 @@
                 android:textAllCaps="false"
                 android:layout_marginRight="5dp"
                 android:id="@+id/btnEdit"
-                android:textColor="@color/white"/>
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/dark1" /> <!-- Reference your drawable here -->
+
 
             <Button
                 android:layout_width="150dp"
@@ -147,6 +150,8 @@
                 android:textAllCaps="false"
                 android:layout_marginLeft="5dp"
                 android:id="@+id/btnDelete"
+                android:visibility="gone"
+                android:backgroundTint="@color/dark1"
                 android:textColor="@color/white"/>
         </LinearLayout>
 

@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -21,6 +24,7 @@ class SparePartsShopFragment : Fragment() {
     private lateinit var mainAdapter: MainAdapter
     private lateinit var databaseReference: DatabaseReference
     private lateinit var floatingActionButton: FloatingActionButton
+    private var currentUserRole: String? = null // To store the user's role
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +54,16 @@ class SparePartsShopFragment : Fragment() {
         mainAdapter = MainAdapter(options)
         recyclerView.adapter = mainAdapter
 
-        // Set up FloatingActionButton to navigate to AddActivity
+        // Initialize floating action button
         floatingActionButton = view.findViewById(R.id.floatingActionButton)
+
+        // Handle the floating action button click
         floatingActionButton.setOnClickListener {
             startActivity(Intent(requireContext(), AddActivity::class.java))
         }
+
+        // Retrieve the current user's role from Firebase
+        getCurrentUserRole()
 
         // Handle window insets if needed
         ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
@@ -64,6 +73,23 @@ class SparePartsShopFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun getCurrentUserRole() {
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+        if (firebaseUser != null) {
+            val userRef = FirebaseDatabase.getInstance().getReference("users").child(firebaseUser.uid)
+            userRef.child("role").get().addOnSuccessListener { dataSnapshot ->
+                currentUserRole = dataSnapshot.getValue(String::class.java)
+                // Update adapter to show or hide edit/delete buttons based on role
+                if (currentUserRole != null) {
+                    mainAdapter.setUserRole(currentUserRole == "Spare Part Seller") // Check for Spare Part Seller role
+                }
+            }.addOnFailureListener {
+                // Handle the error
+                Toast.makeText(requireContext(), "Error fetching user role", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun onStart() {

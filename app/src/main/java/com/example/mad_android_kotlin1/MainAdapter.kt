@@ -1,4 +1,5 @@
 package com.example.mad_android_kotlin1
+
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.util.Log
@@ -21,18 +22,36 @@ import com.orhanobut.dialogplus.ViewHolder
 class MainAdapter(options: FirebaseRecyclerOptions<MainModel>) :
     FirebaseRecyclerAdapter<MainModel, MainAdapter.MyViewHolder>(options) {
 
+    // Flag to check if the user is a Spare Part Seller
+    private var isSparePartSeller = false
+
+    // Function to set the user role and update the visibility of buttons accordingly
+    fun setUserRole(isSeller: Boolean) {
+        isSparePartSeller = isSeller
+        notifyDataSetChanged()
+    }
+
     @SuppressLint("RecyclerView")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: MainModel) {
+        // Bind the data to the views
         holder.name.text = model.name
         holder.price.text = model.price.toString()
         holder.phone.text = model.phone.toString()
 
         Glide.with(holder.img.context)
             .load(model.turl)
-            .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
-            .error(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark_normal)
             .into(holder.img)
 
+        // Show or hide the Edit and Delete buttons based on the user role
+        if (isSparePartSeller) {
+            holder.btnEdit.visibility = View.VISIBLE
+            holder.btnDelete.visibility = View.VISIBLE
+        } else {
+            holder.btnEdit.visibility = View.GONE
+            holder.btnDelete.visibility = View.GONE
+        }
+
+        // Edit button functionality
         holder.btnEdit.setOnClickListener {
             val dialogPlus = DialogPlus.newDialog(holder.img.context)
                 .setContentHolder(ViewHolder(R.layout.update_popup))
@@ -45,7 +64,6 @@ class MainAdapter(options: FirebaseRecyclerOptions<MainModel>) :
             val phoneEditText: EditText = view.findViewById(R.id.txtEmail)
             val turlEditText: EditText = view.findViewById(R.id.txtImageUrl)
             val btnUpdate: Button = view.findViewById(R.id.btnUpdate)
-
 
             nameEditText.setText(model.name)
             priceEditText.setText(model.price.toString())
@@ -82,12 +100,14 @@ class MainAdapter(options: FirebaseRecyclerOptions<MainModel>) :
             }
         }
 
+        // Delete button functionality
         holder.btnDelete.setOnClickListener {
             AlertDialog.Builder(holder.name.context)
                 .setTitle("Are you sure?")
                 .setMessage("Deleted data can't be undone.")
                 .setPositiveButton("Delete") { _, _ ->
                     val ref = FirebaseDatabase.getInstance().reference.child("spareparts").child(getRef(position).key!!)
+
                     ref.removeValue()
                         .addOnSuccessListener {
                             Toast.makeText(holder.name.context, "Delete Successful", Toast.LENGTH_SHORT).show()
@@ -108,11 +128,7 @@ class MainAdapter(options: FirebaseRecyclerOptions<MainModel>) :
         return MyViewHolder(view)
     }
 
-    override fun updateOptions(options: FirebaseRecyclerOptions<MainModel>) {
-        super.updateOptions(options)
-        notifyDataSetChanged()
-    }
-
+    // ViewHolder class for RecyclerView items
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val img: ImageView = itemView.findViewById(R.id.img1)
         val name: TextView = itemView.findViewById(R.id.nametext)

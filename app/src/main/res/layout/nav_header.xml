@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="@color/blue"
+    android:background="@color/dark1"
     android:gravity="bottom"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
@@ -13,7 +13,9 @@
         android:id="@+id/imageView"
         android:layout_width="82dp"
         android:layout_height="71dp"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@drawable/icon"
+        app:itemIconTint="@color/white"
+        />
 
     <TextView
         android:id="@+id/userNameTextView"

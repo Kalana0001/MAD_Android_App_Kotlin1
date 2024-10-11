@@ -38,6 +38,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Change Image"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/dark1"
                     android:layout_marginTop="70dp"
                     android:layout_gravity="center" />
 
@@ -63,6 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="@color/dark1"
                         android:padding="16dp"
                         android:gravity="center">
 
@@ -99,6 +102,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="@color/dark1"
                         android:padding="16dp"
                         android:gravity="center">
 
@@ -217,7 +221,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Update Profile"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/dark1"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
                 android:layout_marginBottom="16dp"

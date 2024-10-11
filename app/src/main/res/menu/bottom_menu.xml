@@ -4,7 +4,7 @@
     <item
         android:id="@+id/spare_parts"
         android:title="Spare Parts"
-        android:icon="@drawable/baseline_home_24"/>
+        android:icon="@drawable/spare_parts"/>
 
     <item
         android:id="@+id/setting_img"
